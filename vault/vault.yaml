@@ -5,14 +5,14 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: vault-operator
-    server: https://kubernetes.default.svc
-  project: infra-testing
-  source:
-    chart: vault-operator
-    repoURL: https://kubernetes-charts.banzaicloud.com
-    targetRevision: 1.11.7
-  syncPolicy:
-    automated: {}
-    syncOptions:
-    - CreateNamespace=true
+    namespace: vault-operator
+    server: https://kubernetes.default.svc
+  project: infra-testing
+  source:
+    chart: vault-operator
+    repoURL: https://kubernetes-charts.banzaicloud.com
+    targetRevision: 1.11.7
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
