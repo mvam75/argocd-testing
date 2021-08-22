@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: vault-operator
     server: https://kubernetes.default.svc
-  project: infrastructure
+  project: infra-testing
   source:
     chart: vault-operator
     repoURL: https://kubernetes-charts.banzaicloud.com
