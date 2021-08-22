@@ -13,5 +13,7 @@ spec:
     repoURL: https://kubernetes-charts.banzaicloud.com
     targetRevision: 1.13.2
   syncPolicy:
+    automated:
+      selfHeal: true
     syncOptions:
     - CreateNamespace=true
