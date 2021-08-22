@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: infra-testing
   source:
-    chart: cert-manager
+    chart: ingress-nginx
     helm:
       parameters:
         - name: installCRDs
