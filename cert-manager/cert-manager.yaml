@@ -14,8 +14,6 @@ spec:
       parameters:
         - name: installCRDs
           value: "true"
-        - name: prometheus.enabled
-          value: "false"
     repoURL: https://charts.jetstack.io
     targetRevision: v1.5.0
   syncPolicy:
