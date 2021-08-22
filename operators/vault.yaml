@@ -11,7 +11,7 @@ spec:
   source:
     chart: vault-operator
     repoURL: https://kubernetes-charts.banzaicloud.com
-    targetRevision: 1.11.7
+    targetRevision: 1.13.2
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
