@@ -13,9 +13,9 @@ spec:
     helm:
       valueFiles:
         - infrastructure/values-dev.yaml
-#  destination:
-#    namespace: argo-root
-#    name: in-cluster
+  destination:
+    namespace: argo-root
+    name: in-cluster
   syncPolicy:
     automated:
       prune: true
