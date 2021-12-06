@@ -12,7 +12,7 @@ spec:
       recurse: true
     helm:
       valueFiles:
-        - values-dev.yaml
+        - infrastructure/values-dev.yaml
 #  destination:
 #    namespace: argo-root
 #    name: in-cluster
