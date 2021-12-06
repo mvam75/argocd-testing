@@ -13,7 +13,7 @@ spec:
     helm:
       parameters:
         - name: policy
-          value: upsert
+          value: upsert-only
         - name: sources[0]
           value: service
     repoURL: https://charts.bitnami.com/bitnami
