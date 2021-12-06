@@ -1,0 +1,3 @@
+versions:
+  certManager: v1.5.0
+  externalDns: 5.4.0

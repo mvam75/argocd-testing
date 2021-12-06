@@ -10,6 +10,7 @@ spec:
     path: infrastructure
     helm:
       valueFiles:
+        - defaults.yaml
         - values-dev.yaml
   destination:
     namespace: argo-root
