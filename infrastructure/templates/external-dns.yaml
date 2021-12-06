@@ -6,8 +6,8 @@ metadata:
 spec:
   destination:
     namespace: external-dns
-    server: {{ .Values.clusterUrl }}
-  project:
+    server: {{ .Values.argo.clusterUrl }}
+  project: {{ .Values.argo.project }}
   source:
     chart: external-dns
     helm:

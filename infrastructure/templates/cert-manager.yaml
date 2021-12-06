@@ -6,8 +6,8 @@ metadata:
 spec:
   destination:
     namespace: cert-manager
-    server: {{ .Values.clusterUrl }}
-  project: infra-test
+    server: {{ .Values.argo.clusterUrl }}
+  project: {{ .Values.argo.project }}
   source:
     chart: cert-manager
     helm:
