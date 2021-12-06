@@ -10,7 +10,7 @@ spec:
     path: infrastructure
     helm:
       valueFiles:
-        - infrastructure/values-dev.yaml
+        - values-dev.yaml
   destination:
     namespace: argo-root
     name: in-cluster
