@@ -8,8 +8,6 @@ spec:
   source:
     repoURL: https://github.com/mvam75/argocd-testing.git
     path: infrastructure
-    directory:
-      recurse: true
     helm:
       valueFiles:
         - infrastructure/values-dev.yaml
