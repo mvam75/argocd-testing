@@ -10,9 +10,12 @@ spec:
     path: infrastructure
     directory:
       recurse: true
-  destination:
-    namespace: argo-root
-    name: in-cluster
+    helm:
+      valueFiles:
+        - values-dev.yaml
+#  destination:
+#    namespace: argo-root
+#    name: in-cluster
   syncPolicy:
     automated:
       prune: true
