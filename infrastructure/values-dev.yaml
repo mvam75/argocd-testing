@@ -4,3 +4,6 @@ argo:
 
 dataDog:
   mskRole: arn:aws:iam::338530616089:role/dev3-msk-monitoring
+
+cluster
+  name: k3d-test4
