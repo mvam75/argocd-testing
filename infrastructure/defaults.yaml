@@ -1,3 +1,5 @@
 versions:
   certManager: v1.5.0
   externalDns: 5.4.0
+
+repoURL: https://github.com/mvam75/argocd-testing.git
