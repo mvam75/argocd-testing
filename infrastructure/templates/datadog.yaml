@@ -9,9 +9,9 @@ spec:
     server: {{ .Values.argo.clusterUrl }}
   project: {{ .Values.argo.project }}
   source:
-    path: infrastructure/helm/infrastructure/templates/datadog
+    path: infrastructure/infrastructure/templates/datadog
     repoURL: {{ .Values.repoURL }}
-#    targetRevision: initial_argo_installs
+    targetRevision: HEAD
   syncPolicy:
     automated:
       selfHeal: true
