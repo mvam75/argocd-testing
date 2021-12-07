@@ -9,7 +9,7 @@ spec:
     server: {{ .Values.argo.clusterUrl }}
   project: {{ .Values.argo.project }}
   source:
-    path: infrastructure/infrastructure/templates/datadog
+    path: infrastructure/templates/datadog
     repoURL: {{ .Values.repoURL }}
     targetRevision: HEAD
   syncPolicy:
