@@ -12,8 +12,8 @@ spec:
     path: infrastructure/templates/datadog/
     repoURL: {{ .Values.repoURL }}
     targetRevision: HEAD
-  directory:
-    recurse: true
+    directory:
+      recurse: true
   syncPolicy:
     automated:
       selfHeal: true
