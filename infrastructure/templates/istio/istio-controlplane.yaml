@@ -4,7 +4,7 @@ metadata:
   namespace: istio-system
   name: istiocontrolplane
   annotations:
-    argocd.argoproj.io/sync-wave: "1
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   profile: default
   hub: gcr.io/istio-release
