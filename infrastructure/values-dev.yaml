@@ -1,3 +1,6 @@
 argo:
   clusterUrl: https://kubernetes.default.svc
   project: infra-test
+
+dataDog:
+  mskRole: arn:aws:iam::338530616089:role/dev3-msk-monitoring

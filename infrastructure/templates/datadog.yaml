@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: datadog
+  namespace: argocd
+spec:
+  destination:
+    namespace: monitoring
+    server: {{ .Values.argo.clusterUrl }}
+  project: {{ .Values.argo.project }}
+  source:
+    path: infrastructure/helm/infrastructure/template/manifests/datadog
+    repoURL: {{ .Values.repoURL }}
+#    targetRevision: initial_argo_installs
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  ignoreDifferences:
+    - group: ""
+      kind: Secret
+      name: datadog-api-secret
+      jsonPointers:
+        - /data
