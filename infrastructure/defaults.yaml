@@ -3,3 +3,6 @@ versions:
   externalDns: 5.4.0
 
 repoURL: https://github.com/mvam75/argocd-testing.git
+
+versions:
+  istioOperator: 1.11.4

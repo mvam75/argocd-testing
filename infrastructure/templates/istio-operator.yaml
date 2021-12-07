@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: {{ .Values.argo.clusterUrl }}
+  project: {{ .Values.argo.project }}
+  source:
+    path: manifests/charts/istio-operator
+    helm:
+      parameters:
+        - name: hub
+          value: gcr.io/istio-release
+        - name: tag
+          value: {{ .Values.versions.istioOperator }}-distroless
+    repoURL: https://github.com/istio/istio
+    targetRevision: {{ .Values.versions.istioOperator }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  ignoreDifferences:
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      jsonPointers:
+        - /metadata/labels
+        - /spec/names/shortNames

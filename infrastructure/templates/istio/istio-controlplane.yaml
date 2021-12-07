@@ -1,0 +1,91 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istiocontrolplane
+spec:
+  profile: default
+  hub: gcr.io/istio-release
+  tag: {{ .Values.versions.istioOperator }}-distroless
+  components:
+    cni:
+      enabled: true
+      k8s:
+        resources:
+          limits:
+            cpu: 10m
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
+    pilot:
+      enabled: true
+      k8s:
+        resources:
+          limits:
+            cpu: 500m
+            memory: 2Gi
+          requests:
+            cpu: 100m
+            memory: 1Gi
+    ingressGateways:
+    - name: istio-ingressgateway
+      enabled: false
+      k8s:
+        serviceAnnotations:
+          service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+        env:
+        - name: ISTIO_META_ROUTER_MODE
+          value: sni-dnat
+        hpaSpec:
+          maxReplicas: 5
+          metrics:
+          - resource:
+              name: cpu
+              targetAverageUtilization: 80
+            type: Resource
+          minReplicas: 2
+          scaleTargetRef:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: istio-ingressgateway
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        service:
+          ports:
+          - name: http2
+            port: 80
+            targetPort: 8080
+          - name: https
+            port: 443
+            targetPort: 8443
+        strategy:
+          rollingUpdate:
+            maxSurge: 100%
+            maxUnavailable: 25%
+  meshConfig:
+    enableTracing: true
+  values:
+    cni:
+      excludeNamespaces:
+        - cert-manager
+        - datadog
+        - istio-system
+        - kube-system
+        - default
+        - external-dns
+        - istio-operator
+        - kube-node-lease
+        - kube-public
+        - vswh
+    global:
+      proxy:
+        tracer: datadog
+      tracer:
+        datadog:
+          address: datadog.monitoring:8126
