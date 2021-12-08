@@ -5,5 +5,6 @@ versions:
 repoURL: https://github.com/mvam75/argocd-testing.git
 
 versions:
+  certManager: v1.6.0
   externalDns: 5.4.0
   istioOperator: 1.11.4
